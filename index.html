@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Solavine | WHERE LIGHT MEETS LIFE</title>
+  <meta name="description" content="Solavine Senior Care - Compassion. Dignity. Excellence. Founded 2026. Personalized home care in Bellevue, WA.">
+  
+  <!-- FAVICON - OFFLINE VERSION -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background-color: #F8F5EF; font-family: 'Inter', sans-serif; color: #111111; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    .solavine-logo { width: 100%; max-width: 550px; height: auto; margin: 0 auto 2rem auto; display: block; background: transparent !important; }
+    .floating-call { position: fixed; bottom: 30px; right: 30px; background: #C17B2E; color: #FFFFFF; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; z-index: 999; text-decoration: none; }
+    .floating-call:hover { transform: scale(1.1); background: #9e5e20; }
+    
+    .btn-primary { 
+      background-color: #C17B2E; 
+      color: #FFFFFF; 
+      padding: 1.2rem 3rem; 
+      border: none; 
+      font-weight: 700; 
+      font-size: 1.1rem; 
+      cursor: pointer; 
+      transition: all 0.4s ease; 
+      text-decoration: none; 
+      display: inline-block; 
+      letter-spacing: 2px; 
+      font-family: 'Inter', sans-serif; 
+      border-radius: 0; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover { 
+      background-color: #9e5e20; 
+      color: #FFFFFF; 
+      transform: translateY(-4px) scale(1.02); 
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .btn-primary:active { transform: translateY(0px); }
+    
+    .btn-gold-outline { background: transparent; border: 2px solid #C17B2E; color: #111111; padding: 0.8rem 2rem; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; border-radius: 0; letter-spacing: 1px; }
+    .btn-gold-outline:hover { background: #C17B2E; color: #FFFFFF; transform: translateY(-2px); }
+    
+    /* HEADER */
+    header { 
+      background-color: #111111; 
+      padding: 0.8rem 0; 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      z-index: 1000; 
+      transition: transform 0.4s ease, background 0.4s ease, padding 0.4s ease; 
+      transform: translateY(0);
+      border-bottom: 1px solid rgba(193, 123, 46, 0.2);
+    }
+    header.hidden { transform: translateY(-100%); }
+    header.scrolled { background: rgba(17, 17, 17, 0.92); backdrop-filter: blur(12px); padding: 0.5rem 0; border-bottom: 1px solid rgba(193, 123, 46, 0.3); }
+    body { padding-top: 80px; }
+    
+    .nav-container { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      flex-wrap: wrap;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 0.75rem; 
+      transition: all 0.3s ease; 
+    }
+    .logo img { 
+      height: 50px; 
+      width: auto; 
+      transition: all 0.3s ease; 
+    }
+    header.scrolled .logo img { height: 40px; }
+    .logo-text h1 { 
+      font-size: 1.4rem; 
+      letter-spacing: 2px; 
+      color: #F8F5EF; 
+      line-height: 1.2; 
+      transition: font-size 0.3s ease; 
+      font-family: 'Cinzel', serif; 
+    }
+    header.scrolled .logo-text h1 { font-size: 1.2rem; }
+    .logo-text p { 
+      font-size: 0.6rem; 
+      letter-spacing: 3px; 
+      color: #C17B2E; 
+      font-family: 'Inter', sans-serif; 
+    }
+    
+    .nav-links { 
+      display: flex; 
+      gap: 2rem; 
+      list-style: none; 
+      flex-wrap: wrap; 
+      align-items: center; 
+    }
+    .nav-links li { 
+      position: relative; 
+    }
+    .nav-links a { 
+      color: #F8F5EF; 
+      text-decoration: none; 
+      font-weight: 500; 
+      font-size: 0.95rem; 
+      transition: color 0.2s; 
+      font-family: 'Inter', sans-serif; 
+      cursor: pointer; 
+      padding: 0.4rem 0; 
+      display: inline-block; 
+      letter-spacing: 0.5px;
+    }
+    .nav-links a:hover { 
+      color: #C17B2E; 
+    }
+    
+    /* DROPDOWN - FIXED FOR DESKTOP */
+    .dropdown-menu { 
+      position: absolute; 
+      top: 100%; 
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      background: rgba(17, 17, 17, 0.98); 
+      backdrop-filter: blur(12px); 
+      min-width: 220px; 
+      max-height: 400px;
+      overflow-y: auto;
+      border-radius: 12px; 
+      padding: 0.6rem 0; 
+      border: 1px solid rgba(193, 123, 46, 0.25); 
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .dropdown-menu::-webkit-scrollbar { width: 4px; }
+    .dropdown-menu::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+    .dropdown-menu::-webkit-scrollbar-thumb { background: #C17B2E; border-radius: 10px; }
+    
+    /* Desktop: hover to open */
+    .has-dropdown:hover .dropdown-menu { 
+      opacity: 1; 
+      visibility: visible; 
+      transform: translateX(-50%) translateY(0);
+      pointer-events: all;
+    }
+    /* Also support click for touch devices */
+    .dropdown-menu.open { 
+      opacity: 1; 
+      visibility: visible; 
+      transform: translateX(-50%) translateY(0);
+      pointer-events: all;
+    }
+    .dropdown-menu a { 
+      display: block; 
+      padding: 0.6rem 1.8rem; 
+      color: #F8F5EF; 
+      font-size: 0.85rem; 
+      font-weight: 400; 
+      transition: all 0.2s; 
+      white-space: nowrap; 
+      text-decoration: none;
+      text-align: left;
+      letter-spacing: 0.3px;
+    }
+    .dropdown-menu a:hover { 
+      background: rgba(193, 123, 46, 0.15); 
+      color: #C17B2E; 
+      padding-left: 2.2rem; 
+    }
+    .has-dropdown > a::after { 
+      content: " ▼"; 
+      font-size: 0.6rem; 
+      color: #C17B2E; 
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .has-dropdown > a.active::after { 
+      transform: rotate(180deg); 
+    }
+    
+    .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-top: -80px; padding-top: 10rem; padding-bottom: 6rem; z-index: 1; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .hero-fog { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+    .fog-gradient { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(248,245,239,0.7) 0%, rgba(248,245,239,0.8) 25%, rgba(193,123,46,0.15) 50%, rgba(17,17,17,0.15) 100%); }
+    .mist-layer-1, .mist-layer-2 { position: absolute; width: 140%; height: 100%; filter: blur(30px); animation: drift 20s ease-in-out infinite; }
+    .mist-layer-1 { top: 0; left: -20%; background: radial-gradient(ellipse at center, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.15) 40%, transparent 80%); }
+    .mist-layer-2 { top: 0; left: -30%; width: 160%; background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, rgba(248,245,239,0.2) 40%, transparent 70%); filter: blur(50px); animation: drift 25s ease-in-out infinite reverse; }
+    @keyframes drift { 0% { transform: translateX(0) translateY(0); } 50% { transform: translateX(10%) translateY(-5%); } 100% { transform: translateX(0) translateY(0); } }
+    .vignette { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.2) 100%); z-index: 3; pointer-events: none; }
+    .hero-content-wrapper { position: relative; z-index: 10; width: 100%; text-align: center; }
+    .hero-content { max-width: 900px; margin: 0 auto; text-align: center; position: relative; }
+    .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+    
+    .contact-card { background: white; padding: 3.5rem; margin: -3rem auto 4rem auto; max-width: 1000px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.08); border: 1px solid rgba(193,123,46,0.15); text-align: center; position: relative; z-index: 10; }
+    .contact-card h3 { font-size: 0.9rem; letter-spacing: 3px; color: #C17B2E; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .contact-card h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .contact-card .tagline { font-size: 1rem; color: #555; margin-bottom: 1.5rem; font-style: italic; }
+    .contact-info-grid { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin: 2rem 0; }
+    .contact-info-item { text-align: center; }
+    .contact-info-item i { font-size: 1.8rem; color: #C17B2E; margin-bottom: 0.5rem; }
+    .contact-info-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+    .contact-info-item .value { font-size: 1.1rem; font-weight: 600; color: #111; }
+    section { padding: 6rem 0; opacity: 1; transform: translateY(0); transition: opacity 0.6s ease, transform 0.6s ease; }
+    section.loading { opacity: 0; transform: translateY(20px); }
+    section.visible { opacity: 1; transform: translateY(0); }
+    .section-title { font-size: 2.8rem; margin-bottom: 0.5rem; font-family: 'Cinzel', serif; }
+    .section-subtitle { font-size: 1rem; color: #666; max-width: 700px; margin: 0 auto 2.5rem auto; text-align: center; }
+    .gold-border-bottom { border-bottom: 2px solid #C17B2E; width: 80px; margin: 1rem 0 2rem 0; }
+    .text-gold { color: #C17B2E; }
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem; margin: 2rem 0; text-align: center; }
+    .value-card { padding: 1.5rem; transition: all 0.3s ease; }
+    .value-card:hover { transform: translateY(-5px); }
+    .value-card i { font-size: 2.8rem; color: #C17B2E; margin-bottom: 1rem; }
+    .value-card h4 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; list-style: none; margin: 2rem 0; }
+    .services-grid li { background: white; padding: 1.5rem 1.5rem; border-left: 4px solid #C17B2E; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.03); border-radius: 0 8px 8px 0; }
+    .services-grid li:hover { transform: translateX(8px); border-left-width: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .services-grid li strong { display: block; font-size: 1.1rem; margin-bottom: 0.25rem; color: #111; }
+    .services-grid li span { font-size: 0.9rem; color: #555; font-weight: 400; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .testimonial-card { background: white; padding: 2.5rem 2rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); transition: all 0.3s ease; text-align: center; border-top: 4px solid #C17B2E; }
+    .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+    .testimonial-card i { font-size: 2.5rem; color: #C17B2E; margin-bottom: 0.5rem; }
+    .testimonial-card h4 { font-size: 1.4rem; margin-bottom: 0.5rem; font-family: 'Cinzel', serif; }
+    .testimonial-card p { font-size: 0.95rem; line-height: 1.6; color: #333; }
+    .emails-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .email-item { background: #f5f3ef; padding: 0.8rem 1rem; border-radius: 8px; display: flex; align-items: center; gap: 0.8rem; transition: all 0.3s ease; }
+    .email-item i { color: #C17B2E; font-size: 1.2rem; }
+    .email-item a { color: #111; text-decoration: none; font-size: 0.9rem; flex: 1; }
+    .email-item a:hover { color: #C17B2E; }
+    .email-item:hover { background: #e8e3db; transform: translateX(3px); }
+    .two-columns { display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; }
+    .col { flex: 1; }
+    .founder-img { background: #e9e2d5; border-radius: 20px; padding: 1.5rem; text-align: center; }
+    .founder-img i { font-size: 7rem; color: #C17B2E; }
+    .career-form, .contact-form { background: white; padding: 2rem; margin-top: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,0.03); border-radius: 12px; }
+    .form-group { margin-bottom: 1.5rem; }
+    input, textarea, select { width: 100%; padding: 0.9rem; border: 1px solid #ddd; font-family: 'Inter', sans-serif; background: #FEFCF8; transition: all 0.3s ease; }
+    input:focus, textarea:focus { border-color: #C17B2E; outline: none; box-shadow: 0 0 0 3px rgba(193,123,46,0.1); }
+    label { font-weight: 600; display: block; margin-bottom: 0.5rem; }
+    
+    .cinematic-card { position: relative; background: #111111; border-radius: 24px; overflow: hidden; cursor: default; min-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; transition: all 0.5s ease; z-index: 1; }
+    .cinematic-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+    .cinematic-bg img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s ease-in-out; }
+    .cinematic-bg img.active { opacity: 1; }
+    .cinematic-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 2; transition: background 0.3s ease; }
+    .cinematic-card:hover .cinematic-overlay { background: rgba(0, 0, 0, 0.5); }
+    .cinematic-content { position: relative; z-index: 3; color: #F8F5EF; padding: 3rem; transition: transform 0.3s ease; max-width: 700px; }
+    .cinematic-card:hover .cinematic-content { transform: scale(1.01); }
+    .cinematic-content i { font-size: 3rem; color: #C17B2E; margin-bottom: 1rem; }
+    .cinematic-content h2 { font-size: 2.2rem; margin-bottom: 0.5rem; font-family: 'Cinzel', serif; }
+    .cinematic-content p { font-size: 1rem; opacity: 0.95; line-height: 1.6; }
+    .gold-border-center { border-bottom: 2px solid #C17B2E; width: 80px; margin: 1rem auto; }
+    
+    footer { background-color: #111111; color: #F8F5EF; padding: 3rem 0 2rem; margin-top: 2rem; position: relative; z-index: 1; }
+    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+    .footer-logo h3 { font-size: 1.8rem; font-family: 'Cinzel', serif; }
+    .footer-links a, .footer-contact p { color: #ddd; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.3s; }
+    .footer-links a:hover { color: #C17B2E; transform: translateX(3px); display: inline-block; }
+    .copyright { text-align: center; margin-top: 2rem; font-size: 0.8rem; border-top: 1px solid #2a2a2a; padding-top: 2rem; }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; gap: 0.8rem; align-items: center; padding: 0 1rem; }
+      .logo img { height: 40px; }
+      .logo-text h1 { font-size: 1.2rem; }
+      .logo-text p { font-size: 0.5rem; }
+      .section-title { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      
+      .nav-links { 
+        flex-direction: row; 
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        gap: 0.8rem 1.2rem;
+      }
+      .nav-links li { display: inline-block; }
+      .nav-links a { font-size: 0.85rem; padding: 0.3rem 0; }
+      
+      .dropdown-menu { 
+        position: static; 
+        background: rgba(17,17,17,0.95); 
+        margin-top: 0.5rem; 
+        transform: none !important;
+        min-width: auto;
+        width: 100%;
+        max-height: 300px;
+        border-radius: 8px;
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+        pointer-events: none;
+        left: auto;
+        overflow-y: auto;
+      }
+      .dropdown-menu.open { 
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        transform: none !important;
+      }
+      .dropdown-menu a { 
+        white-space: normal; 
+        padding: 0.6rem 1.2rem;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+      .has-dropdown { width: auto; text-align: center; }
+      .has-dropdown > a { display: inline-block; padding: 0.3rem 0; }
+      
+      .contact-card { margin: -2rem 1rem 2rem 1rem; padding: 1.5rem; }
+      .cinematic-content h2 { font-size: 1.5rem; }
+      .cinematic-content p { font-size: 0.85rem; }
+      body { padding-top: 120px; }
+      .hero { padding-top: 8rem; min-height: 85vh; margin-top: -120px; }
+      .solavine-logo { max-width: 380px; }
+      .floating-call { width: 50px; height: 50px; font-size: 1.4rem; bottom: 20px; right: 20px; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .btn-primary { padding: 1rem 2rem; font-size: 1rem; }
+      .emails-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 480px) {
+      .nav-links { gap: 0.5rem 0.8rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .logo img { height: 35px; }
+      .logo-text h1 { font-size: 1rem; }
+      .logo-text p { font-size: 0.45rem; }
+      body { padding-top: 110px; }
+      .hero { margin-top: -110px; padding-top: 7rem; }
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="logo.jpeg" alt="Solavine Logo">
+      <div class="logo-text">
+        <h1>SOLAVINE</h1>
+        <p>WHERE LIGHT MEETS LIFE</p>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li class="has-dropdown" id="dropdownContainer">
+        <a href="#services" id="servicesDropdown">Services</a>
+        <div class="dropdown-menu" id="servicesMenu">
+          <a href="#services" class="service-link">Companion Care</a>
+          <a href="#services" class="service-link">Personal Care</a>
+          <a href="#services" class="service-link">Respite Care</a>
+          <a href="#services" class="service-link">Dementia Support</a>
+          <a href="#services" class="service-link">Transportation Assistance</a>
+          <a href="#services" class="service-link">Medication Reminders</a>
+          <a href="#services" class="service-link">Home Care</a>
+          <a href="#services" class="service-link">24/7 Care</a>
+          <a href="#services" class="service-link">Post Operative Care</a>
+          <a href="#services" class="service-link">End of Life Care</a>
+          <a href="#services" class="service-link">Alzheimer's Care</a>
+          <a href="#services" class="service-link">Memory Care Support</a>
+          <a href="#services" class="service-link">Mobility & Bed-Bound Support</a>
+          <a href="#services" class="service-link">Meal Planning & Preparation</a>
+          <a href="#services" class="service-link">Light Housekeeping</a>
+          <a href="#services" class="service-link">Post-Hospital Recovery Support</a>
+          <a href="#services" class="service-link">Overnight Care</a>
+          <a href="#services" class="service-link">Hospice Support Care</a>
+          <a href="#services" class="service-link">Meaningful Engagement</a>
+          <a href="#services" class="service-link">Technology & Family Connection</a>
+          <a href="#services" class="service-link">Customized Care Plans</a>
+        </div>
+      </li>
+      <li><a href="#homes">Our Homes</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<a href="tel:2536837204" class="floating-call">
+  <i class="fas fa-phone-alt"></i>
+</a>
+
+<main>
+  <!-- HOME SECTION -->
+  <section id="home" class="hero">
+    <img src="home.png" alt="Solavine Background" class="hero-bg" loading="lazy">
+    <div class="hero-fog">
+      <div class="fog-gradient"></div>
+      <div class="mist-layer-1"></div>
+      <div class="mist-layer-2"></div>
+    </div>
+    <div class="vignette"></div>
+    <div class="hero-content-wrapper">
+      <div class="hero-content">
+        <img src="solavine-logo.png" alt="Solavine Logo" class="solavine-logo" loading="lazy">
+        <div class="hero-buttons">
+          <a href="#about" class="btn-primary">LEARN MORE →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CARD -->
+  <div class="container">
+    <div class="contact-card">
+      <h3>SOLAVINE SENIOR CARE</h3>
+      <h2>COMPASSION. DIGNITY. EXCELLENCE.</h2>
+      <div class="tagline">A place where light meets life every day.</div>
+      <div class="contact-info-grid">
+        <div class="contact-info-item">
+          <i class="fas fa-phone-alt"></i>
+          <div class="label">CALL US</div>
+          <div class="value">(253) 683-7204</div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-envelope"></i>
+          <div class="label">EMAIL</div>
+          <div class="value">info@solavinellc.com</div>
+        </div>
+        <div class="contact-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="label">VISIT US</div>
+          <div class="value">Bellevue, WA</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-gold-outline">Request Care →</a>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="loading">
+    <div class="container">
+      <h2 class="section-title">About Solavine</h2>
+      <div class="gold-border-bottom"></div>
+      <div class="two-columns">
+        <div class="col">
+          <p><strong>WHERE LIGHT MEETS LIFE — Elevated Care. Meaningful Connection.</strong></p>
+          <p>Personalized home care designed to help older adults live with comfort, independence, connection, and peace of mind. At Solavine, we believe care is more than assistance with daily tasks. It is companionship, presence, trust, and creating meaningful moments that enrich everyday life.</p>
+          <p>We partner with families to provide thoughtful, personalized support that allows older adults to continue living safely, comfortably, and confidently in the place they call home.</p>
+          <p style="margin-top: 1.5rem; font-size: 1.1rem; color: #C17B2E;"><strong>✨ Solavine was founded in 2026 with a vision to redefine senior care through compassion, dignity, and excellence.</strong></p>
+        </div>
+        <div class="col">
+          <h3 class="text-gold">Our Mission</h3>
+          <p>To provide personalized, compassionate care that promotes comfort, independence, connection, and peace of mind.</p>
+          <h3 class="text-gold" style="margin-top: 1.5rem;">Our Vision</h3>
+          <p>To become a trusted leader in home care by creating meaningful relationships and delivering exceptional support that enhances quality of life.</p>
+        </div>
+      </div>
+
+      <div style="margin: 4rem 0 2rem;">
+        <h2 class="section-title">The Solavine Difference</h2>
+        <div class="gold-border-bottom"></div>
+        <div class="two-columns">
+          <div class="col">
+            <h3>✨ Intentional Care</h3>
+            <p>We approach every interaction with purpose, understanding routines, preferences, and goals so care feels personal.</p>
+            <h3>✨ Attention to Detail</h3>
+            <p>Exceptional care is found in details — favorite meals, preferred routines, moments of joy.</p>
+          </div>
+          <div class="col">
+            <h3>🤝 Meaningful Connection</h3>
+            <p>Genuine relationships bring comfort, companionship, and belonging.</p>
+            <h3>🛡️ Trust & Dependability</h3>
+            <p>Honoring trust through professionalism, reliability, transparency, and communication.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title">Our Values</h2>
+        <div class="gold-border-bottom"></div>
+        <div class="values-grid">
+          <div class="value-card"><i class="fas fa-heart"></i><h4>Compassion</h4></div>
+          <div class="value-card"><i class="fas fa-hand-sparkles"></i><h4>Dignity</h4></div>
+          <div class="value-card"><i class="fas fa-star-of-life"></i><h4>Excellence</h4></div>
+          <div class="value-card"><i class="fas fa-home"></i><h4>Home</h4></div>
+          <div class="value-card"><i class="fas fa-sun"></i><h4>Light</h4></div>
+          <div class="value-card"><i class="fas fa-leaf"></i><h4>Life</h4></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem; background: #eae3d6; padding: 2rem; border-radius: 16px;">
+        <h3>What Families Can Expect</h3>
+        <ul style="columns: 2; list-style: none; margin-top: 1rem;">
+          <li>✓ Thoughtfully matched caregivers</li><li>✓ Personalized support</li>
+          <li>✓ Exceptional attention to detail</li><li>✓ Meaningful companionship</li>
+          <li>✓ Respect for independence</li><li>✓ Transparent communication</li>
+          <li>✓ Consistent dependable care</li><li>✓ Calm, elevated experience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="loading" style="background: #fefaf5;">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="gold-border-bottom"></div>
+      <p class="section-subtitle">Personalized support for every stage of aging — delivered with warmth and excellence.</p>
+      
+      <ul class="services-grid">
+        <li><strong>Companion Care</strong> <span>Meaningful companionship that enriches daily life and fosters genuine connection.</span></li>
+        <li><strong>Personal Care</strong> <span>Professional assistance with daily routines delivered with dignity and discretion.</span></li>
+        <li><strong>Respite Care</strong> <span>Trusted care that gives family caregivers valuable time to rest and recharge.</span></li>
+        <li><strong>Dementia Support</strong> <span>Specialized care that promotes familiarity, reassurance, and stability.</span></li>
+        <li><strong>Transportation Assistance</strong> <span>Reliable transportation for appointments, errands, and community activities.</span></li>
+        <li><strong>Medication Reminders</strong> <span>Consistent reminders that support wellness and daily routines.</span></li>
+        <li><strong>Home Care</strong> <span>Personalized in-home support designed around individual needs and preferences.</span></li>
+        <li><strong>24/7 Care</strong> <span>Continuous care and supervision whenever support is needed.</span></li>
+        <li><strong>Post Operative Care</strong> <span>Dedicated recovery support focused on healing and comfort.</span></li>
+        <li><strong>End of Life Care</strong> <span>Compassionate support centered on dignity, comfort, and presence.</span></li>
+        <li><strong>Alzheimer's Care</strong> <span>Specialized care tailored to the unique needs of Alzheimer's clients.</span></li>
+        <li><strong>Memory Care Support</strong> <span>Structured support that encourages cognitive engagement and routine.</span></li>
+        <li><strong>Mobility & Bed-Bound Support</strong> <span>Expert assistance for clients with limited mobility and complex care needs.</span></li>
+        <li><strong>Meal Planning & Preparation</strong> <span>Nutritious meals thoughtfully prepared to match dietary needs and preferences.</span></li>
+        <li><strong>Light Housekeeping</strong> <span>A clean, organized environment that promotes comfort and peace of mind.</span></li>
+        <li><strong>Post-Hospital Recovery Support</strong> <span>Comprehensive transitional care following hospitalization.</span></li>
+        <li><strong>Overnight Care</strong> <span>Attentive nighttime support that ensures safety and reassurance.</span></li>
+        <li><strong>Hospice Support Care</strong> <span>Compassionate non-medical support during life's most meaningful moments.</span></li>
+        <li><strong>Meaningful Engagement</strong> <span>Purpose-driven activities tailored to personal interests and experiences.</span></li>
+        <li><strong>Technology & Family Connection</strong> <span>Support with video calls, communication tools, and digital engagement.</span></li>
+        <li><strong>Customized Care Plans</strong> <span>Thoughtfully designed care plans built around individual goals and preferences.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOUNDING CLIENT PROMISE -->
+  <section id="testimonials" class="loading">
+    <div class="container">
+      <h2 class="section-title">Founding Client Promise</h2>
+      <div class="gold-border-bottom"></div>
+      <p class="section-subtitle">As a premium, boutique care agency, our highest priority is delivering elite, individualized care to every client and family we serve. While we are in the early stages of our journey, our commitment to excellence remains unwavering.</p>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <i class="fas fa-heart"></i>
+          <h4>Compassion</h4>
+          <p>We lead with kindness, empathy, and genuine human connection in every interaction.</p>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-hand-sparkles"></i>
+          <h4>Dignity</h4>
+          <p>We honor each client's independence, preferences, and life story with the respect they deserve.</p>
+        </div>
+        <div class="testimonial-card">
+          <i class="fas fa-star-of-life"></i>
+          <h4>Excellence</h4>
+          <p>We maintain exceptional standards through attention to detail, professionalism, and personalized care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOMES SECTION -->
+  <section id="homes" class="loading">
+    <div class="container">
+      <div class="cinematic-card" id="cinematicCard">
+        <div class="cinematic-bg" id="cinematicBg">
+          <img src="one.jpeg" alt="Elderly care moment" loading="lazy">
+          <img src="two.jpeg" alt="Elderly care moment" loading="lazy">
+          <img src="three.jpeg" alt="Elderly care moment" loading="lazy">
+          <img src="four.jpeg" alt="Elderly care moment" loading="lazy">
+          <img src="five.jpeg" alt="Elderly care moment" loading="lazy">
+        </div>
+        <div class="cinematic-overlay"></div>
+        <div class="cinematic-content">
+          <i class="fas fa-home"></i>
+          <h2>Future Residential Living</h2>
+          <p>While we currently provide premier in-home care services, we are proud to announce our upcoming residential care facility. Designed with comfort, connection, and quality of life in mind, it will extend the Solavine standard of care into a thoughtfully curated residential setting.</p>
+          <div class="gold-border-center"></div>
+          <p><i class="fas fa-gold"></i> Luxury & safety, reimagined.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER SECTION -->
+  <section class="loading">
+    <div class="container">
+      <div class="two-columns">
+        <div class="col founder-img">
+          <i class="fas fa-user-circle"></i>
+          <h3>Jemimah Mwangi</h3>
+          <p>Founder & CEO</p>
+        </div>
+        <div class="col">
+          <h2 class="section-title">A Message From Our Founder</h2>
+          <div class="gold-border-bottom"></div>
+          <p><em>"Caring for older adults has been one of the most meaningful experiences of my life.</em></p>
+          <p>Over the years, I have had the privilege of supporting seniors and their families during some of life's most important moments. Those experiences taught me that exceptional care is built on trust, compassion, consistency, and genuine human connection.</p>
+          <p>Solavine reflects those values and our commitment to providing thoughtful, personalized care that helps individuals live with comfort, confidence, and peace of mind. Thank you for trusting us with the care of those who matter most."</p>
+          <p style="margin-top: 1rem;"><strong>— Jemimah Mwangi, Founder & CEO</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREERS SECTION -->
+  <section id="careers" class="loading" style="background: #F8F5EF;">
+    <div class="container">
+      <h2 class="section-title">Build a Meaningful Career in Care</h2>
+      <div class="gold-border-bottom"></div>
+      <p class="section-subtitle">Join a team that values compassion, excellence, and genuine human connection</p>
+      <div class="career-form">
+        <h3>Apply Today</h3>
+        <form id="careerForm" action="https://formspree.io/f/xykaowaj" method="POST">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" id="careerName" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" id="careerPhone" placeholder="Phone">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" id="careerEmail" placeholder="email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Experience</label>
+            <textarea name="experience" id="careerExperience" rows="3" placeholder="Tell us about your care experience..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" id="careerSubmitBtn">Apply Now</button>
+        </form>
+        <div id="careerStatus" style="margin-top: 1rem; text-align: center;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="loading">
+    <div class="container">
+      <h2 class="section-title">Let's Start the Conversation</h2>
+      <div class="gold-border-bottom"></div>
+      <div class="two-columns">
+        <div class="col">
+          <p><i class="fas fa-phone-alt text-gold"></i> <strong>Phone:</strong> (253) 683-7204</p>
+          <p><i class="fas fa-envelope text-gold"></i> <strong>Email:</strong> info@solavinellc.com</p>
+          <p><i class="fas fa-map-marker-alt text-gold"></i> <strong>Address:</strong><br>301 116th Ave SE Ste 200#64, Bellevue, WA 98004-6443</p>
+          
+          <h3 class="text-gold" style="margin-top: 2rem; margin-bottom: 1rem;">Department Emails</h3>
+          <div class="emails-grid">
+            <div class="email-item"><i class="fas fa-envelope"></i><a href="mailto:info@solavinellc.com">info@solavinellc.com</a></div>
+            <div class="email-item"><i class="fas fa-user-plus"></i><a href="mailto:admissions@solavinellc.com">admissions@solavinellc.com</a></div>
+            <div class="email-item"><i class="fas fa-credit-card"></i><a href="mailto:billing@solavinellc.com">billing@solavinellc.com</a></div>
+            <div class="email-item"><i class="fas fa-users"></i><a href="mailto:hr@solavinellc.com">hr@solavinellc.com</a></div>
+            <div class="email-item"><i class="fas fa-headset"></i><a href="mailto:support@solavinellc.com">support@solavinellc.com</a></div>
+          </div>
+          
+          <div style="margin-top: 2rem;">
+            <p><strong>Hours:</strong> Available 24/7 for care inquiries</p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <form id="contactForm" action="https://formspree.io/f/mjgdlwzg" method="POST">
+              <div class="form-group"><label>Name</label><input type="text" name="name" id="contactName" required></div>
+              <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" id="contactPhone"></div>
+              <div class="form-group"><label>Email Address</label><input type="email" name="email" id="contactEmail" required></div>
+              <div class="form-group"><label>Message</label><textarea name="message" id="contactMessage" rows="4" required></textarea></div>
+              <button type="submit" class="btn-primary" id="contactSubmitBtn">Send Message</button>
+            </form>
+            <div id="contactStatus" style="margin-top: 1rem; text-align: center;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-logo">
+      <h3>SOLAVINE</h3>
+      <p>WHERE LIGHT MEETS LIFE</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#homes">Our Homes</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-contact">
+      <p><i class="fas fa-phone"></i> (253) 683-7204</p>
+      <p><i class="fas fa-envelope"></i> info@solavinellc.com</p>
+      <p><i class="fas fa-map-pin"></i> Bellevue, WA 98004</p>
+    </div>
+  </div>
+  <div class="container copyright">
+    <p>© 2026 Solavine LLC. All Rights Reserved. Compassion. Dignity. Excellence. Founded 2026.</p>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    'use strict';
+    
+    // HEADER SCROLL
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+    
+    // SECTION VISIBILITY
+    const sections = document.querySelectorAll('section');
+    setTimeout(function() {
+      sections.forEach(function(section) {
+        section.classList.remove('loading');
+        section.classList.add('visible');
+      });
+    }, 100);
+    
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove('loading');
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(function(section) {
+        observer.observe(section);
+      });
+    }
+    
+    // CINEMATIC SLIDESHOW
+    const cinematicCard = document.getElementById('cinematicCard');
+    const images = document.querySelectorAll('.cinematic-bg img');
+    let currentIndex = 0;
+    let slideshowInterval = null;
+
+    function startAutoSlideshow() {
+      if (slideshowInterval) clearInterval(slideshowInterval);
+      images.forEach(function(img, idx) {
+        if (idx === currentIndex) {
+          img.classList.add('active');
+        } else {
+          img.classList.remove('active');
+        }
+      });
+      slideshowInterval = setInterval(function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        images.forEach(function(img, idx) {
+          if (idx === currentIndex) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
+      }, 3000);
+    }
+
+    startAutoSlideshow();
+    if (cinematicCard) {
+      cinematicCard.addEventListener('mouseenter', function() {
+        if (slideshowInterval) clearInterval(slideshowInterval);
+      });
+      cinematicCard.addEventListener('mouseleave', function() {
+        startAutoSlideshow();
+      });
+    }
+
+    // DROPDOWN - FIXED: Closes when clicking a service link on desktop
+    const dropdownContainer = document.getElementById('dropdownContainer');
+    const dropdownToggle = document.getElementById('servicesDropdown');
+    const dropdownMenu = document.getElementById('servicesMenu');
+    const serviceLinks = document.querySelectorAll('.service-link');
+
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (dropdownToggle && dropdownMenu && dropdownContainer) {
+      
+      // For touch devices - toggle on click
+      if (isTouchDevice) {
+        dropdownToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('open');
+          this.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function(e) {
+          if (!dropdownContainer.contains(e.target)) {
+            dropdownMenu.classList.remove('open');
+            dropdownToggle.classList.remove('active');
+          }
+        });
+      }
+      
+      // For ALL devices: close dropdown when clicking a service link
+      serviceLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          // Remove hover state by temporarily removing the hover class
+          dropdownContainer.classList.remove('has-dropdown');
+          dropdownMenu.classList.remove('open');
+          dropdownToggle.classList.remove('active');
+          
+          // Re-add the class after a short delay so hover works again
+          setTimeout(function() {
+            dropdownContainer.classList.add('has-dropdown');
+          }, 100);
+        });
+      });
+      
+      // Also close when clicking outside on desktop
+      document.addEventListener('click', function(e) {
+        if (!dropdownContainer.contains(e.target)) {
+          dropdownMenu.classList.remove('open');
+          dropdownToggle.classList.remove('active');
+        }
+      });
+    }
+
+    // CAREER FORM
+    const careerForm = document.getElementById('careerForm');
+    const careerStatus = document.getElementById('careerStatus');
+
+    if (careerForm) {
+      careerForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        careerStatus.innerHTML = '<span style="color: #C17B2E;"><i class="fas fa-spinner fa-pulse"></i> Submitting application...</span>';
+        
+        const formData = new FormData(careerForm);
+        
+        try {
+          const response = await fetch(careerForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            careerStatus.innerHTML = '<span style="color: #5cb85c;"><i class="fas fa-check-circle"></i> ✓ Application submitted! Please email your CV to solavine3@gmail.com</span>';
+            careerForm.reset();
+            
+            const sendCV = confirm('Application submitted! Click OK to email your CV to solavine3@gmail.com');
+            if (sendCV) {
+              const name = document.getElementById('careerName').value;
+              window.location.href = 'mailto:solavine3@gmail.com?subject=CV Application - ' + name + '&body=Dear Solavine Team,%0D%0A%0D%0APlease find attached my CV.%0D%0A%0D%0ABest regards,%0D%0A' + name;
+            }
+            
+            setTimeout(function() { careerStatus.innerHTML = ''; }, 5000);
+          } else {
+            careerStatus.innerHTML = '<span style="color: #d9534f;">Error submitting. Please try again.</span>';
+          }
+        } catch (error) {
+          careerStatus.innerHTML = '<span style="color: #d9534f;">Error. Please try again.</span>';
+        }
+      });
+    }
+
+    // CONTACT FORM
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        contactStatus.innerHTML = '<span style="color: #C17B2E;"><i class="fas fa-spinner fa-pulse"></i> Sending...</span>';
+        
+        const formData = new FormData(contactForm);
+        
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+          
+          if (response.ok) {
+            contactStatus.innerHTML = '<span style="color: #5cb85c;"><i class="fas fa-check-circle"></i> ✓ Message sent! We will respond within 24 hours.</span>';
+            contactForm.reset();
+            setTimeout(function() { contactStatus.innerHTML = ''; }, 5000);
+          } else {
+            contactStatus.innerHTML = '<span style="color: #d9534f;">Error sending message.</span>';
+          }
+        } catch (error) {
+          contactStatus.innerHTML = '<span style="color: #d9534f;">Error. Please try again.</span>';
+        }
+      });
+    }
+  })();
+</script>
+</body>
+</html>
